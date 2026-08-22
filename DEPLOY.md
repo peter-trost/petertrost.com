@@ -12,13 +12,15 @@
 
 ## DNS (Squarespace Domains, petertrost.com → DNS)
 
-Record set for Vercel:
+Record required by Vercel — **PENDING, not yet set** (Squarespace demands passkey/password re-auth before DNS edits, which Peter must do himself):
 
 | Type | Name | TTL | Data |
 |------|------|-----|------|
 | A | @ | 4h | 216.150.1.1 |
 
-Left untouched: the *Squarespace Domain Connect* preset (`_domainconnect` CNAME) and the *E-Mail-Sicherheit* preset (`_domainkey`, `_dmarc`, `@` SPF TXT records).
+To apply: in Squarespace DNS delete the **Squarespace-Standardeinstellung** preset (trash icon), then *Benutzerdefinierte Einträge → Eintrag hinzufügen*: `A`, `@`, `216.150.1.1`. Then Vercel → Domains → **Refresh**.
+
+Leave untouched: the *Squarespace Domain Connect* preset (`_domainconnect` CNAME) and the *E-Mail-Sicherheit* preset (`_domainkey`, `_dmarc`, `@` SPF TXT records).
 
 ### Rollback
 
