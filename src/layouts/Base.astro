@@ -1,0 +1,86 @@
+---
+import { SITE } from '../site';
+
+interface Props {
+  title: string;
+  description: string;
+  type?: 'website' | 'article';
+  jsonLd?: Record<string, unknown>;
+}
+
+const { title, description, type = 'website', jsonLd } = Astro.props;
+const canonical = new URL(Astro.url.pathname, SITE.url).href;
+const ogImage = new URL(SITE.ogImage, SITE.url).href;
+const fullTitle = title === SITE.title ? title : `${title} · ${SITE.title}`;
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <link rel="alternate" type="application/rss+xml" title={SITE.title} href="/rss.xml" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+
+    <meta property="og:type" content={type} />
+    <meta property="og:site_name" content={SITE.title} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImage} />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+
+    {jsonLd && <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />}
+
+    <style is:global>
+      :root {
+        --bg: #fff;
+        --fg: #1a1a1a;
+        --muted: #666;
+        --link: #0645ad;
+        --rule: #e5e5e5;
+        color-scheme: light dark;
+      }
+      @media (prefers-color-scheme: dark) {
+        :root { --bg: #121212; --fg: #e6e6e6; --muted: #9a9a9a; --link: #8ab4f8; --rule: #2a2a2a; }
+      }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        padding: 2rem 1rem 4rem;
+        background: var(--bg);
+        color: var(--fg);
+        font: 18px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      }
+      main, header.site { max-width: 68ch; margin: 0 auto; }
+      header.site { margin-bottom: 2.5rem; display: flex; justify-content: space-between; align-items: baseline; }
+      header.site a { color: inherit; text-decoration: none; font-weight: 600; }
+      header.site a.feed { font-weight: 400; color: var(--muted); font-size: 0.9rem; }
+      a { color: var(--link); }
+      h1 { font-size: 1.8rem; line-height: 1.2; margin: 0 0 0.5rem; }
+      h2 { font-size: 1.3rem; margin-top: 2rem; }
+      time, .muted { color: var(--muted); font-size: 0.9rem; }
+      ul.posts { list-style: none; padding: 0; margin: 0; }
+      ul.posts li { padding: 1rem 0; border-bottom: 1px solid var(--rule); }
+      ul.posts li a { font-weight: 600; text-decoration: none; }
+      ul.posts li p { margin: 0.25rem 0 0; }
+      article { margin-top: 2rem; }
+      pre { padding: 1rem; overflow-x: auto; border-radius: 4px; font-size: 0.9rem; }
+      img { max-width: 100%; height: auto; }
+      blockquote { margin: 0; padding-left: 1rem; border-left: 3px solid var(--rule); color: var(--muted); }
+    </style>
+  </head>
+  <body>
+    <header class="site">
+      <a href="/">{SITE.title}</a>
+      <a class="feed" href="/rss.xml">RSS</a>
+    </header>
+    <main><slot /></main>
+  </body>
+</html>
