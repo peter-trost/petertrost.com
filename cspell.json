@@ -1,0 +1,9 @@
+{
+  "version": "0.2",
+  "language": "en",
+  "files": ["src/**/*.md", "src/**/*.astro", "*.md"],
+  "ignorePaths": ["node_modules", "dist", ".astro"],
+  "ignoreRegExpList": ["/^---[\\s\\S]*?^---/m", "/```[\\s\\S]*?```/g", "/`[^`]*`/g", "/https?:\\/\\/\\S+/g"],
+  "dictionaries": ["project"],
+  "dictionaryDefinitions": [{ "name": "project", "path": "./.cspell-words.txt", "addWords": true }]
+}
