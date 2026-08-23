@@ -1,0 +1,5 @@
+{
+  "vale.valeCLI.path": "/opt/homebrew/bin/vale",
+  "vale.valeCLI.minAlertLevel": "suggestion",
+  "cSpell.enabled": true
+}

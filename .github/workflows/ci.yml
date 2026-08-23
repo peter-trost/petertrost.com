@@ -19,4 +19,6 @@ jobs:
       - uses: errata-ai/vale-action@v3
         with:
           files: src/content/posts
-          fail_on_error: true
+          filter_mode: nofilter
+          min_alert_level: suggestion
+          fail_level: any
