@@ -1,9 +1,62 @@
 {
   "version": "0.2",
   "language": "en",
-  "files": ["src/**/*.md", "src/**/*.astro", "*.md"],
-  "ignorePaths": ["node_modules", "dist", ".astro"],
-  "ignoreRegExpList": ["/^---[\\s\\S]*?^---/m", "/```[\\s\\S]*?```/g", "/`[^`]*`/g", "/https?:\\/\\/\\S+/g"],
-  "dictionaries": ["project"],
-  "dictionaryDefinitions": [{ "name": "project", "path": "./.cspell-words.txt", "addWords": true }]
+  "files": [
+    "src/**/*.md",
+    "src/**/*.astro",
+    "*.md"
+  ],
+  "ignorePaths": [
+    "node_modules",
+    "dist",
+    ".astro"
+  ],
+  "ignoreRegExpList": [
+    "/^---[\\s\\S]*?^---/m",
+    "/```[\\s\\S]*?```/g",
+    "/`[^`]*`/g",
+    "/https?:\\/\\/\\S+/g"
+  ],
+  "dictionaries": [
+    "project"
+  ],
+  "dictionaryDefinitions": [
+    {
+      "name": "project",
+      "path": "./.cspell-words.txt",
+      "addWords": true
+    }
+  ],
+  "flagWords": [
+    "centre:center",
+    "metre:meter",
+    "litre:liter",
+    "theatre:theater",
+    "grey:gray",
+    "cancelled:canceled",
+    "catalogue:catalog",
+    "programme:program",
+    "tyre:tire",
+    "kerb:curb",
+    "cheque:check",
+    "artefact:artifact",
+    "plough:plow",
+    "draught:draft",
+    "storey:story",
+    "fibre:fiber",
+    "sombre:somber",
+    "spectre:specter",
+    "enrol:enroll",
+    "fulfil:fulfill",
+    "instalment:installment",
+    "skilful:skillful",
+    "modelling:modeling",
+    "labelled:labeled",
+    "signalling:signaling",
+    "focussed:focused",
+    "learnt:learned",
+    "whilst:while",
+    "amongst:among",
+    "amidst:amid"
+  ]
 }
