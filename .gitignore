@@ -1,6 +1,7 @@
+.vale/styles/*
+!.vale/styles/config/
 node_modules/
 dist/
 .astro/
 .vercel/
 .DS_Store
-.vale/

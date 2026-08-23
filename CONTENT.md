@@ -11,4 +11,5 @@
    ---
    ```
 3. Write markdown below the frontmatter.
-4. Check locally with `npm run dev`, then `git add -A && git commit -m "Post: <title>" && git push`. Vercel deploys `main` to petertrost.com in ~1 minute.
+4. Preview with `npm run dev`; run `npm run check` (types + spelling) and `npm run prose` (Vale) — CI fails on any finding. Legit words go in `.cspell-words.txt`, Vale exceptions in `.vale/styles/config/vocabularies/Blog/accept.txt`.
+5. Open a PR (`main` is protected), merge when `check` is green. Vercel deploys `main` to petertrost.com in ~1 minute.
